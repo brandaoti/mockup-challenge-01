@@ -18,7 +18,7 @@ class LoginScreen extends StatelessWidget {
 
               // Texto 1
 
-              Text(
+              const Text(
                 'Get your Money Under Control',
                 style: TextStyle(
                   color: Colors.white,
@@ -27,7 +27,41 @@ class LoginScreen extends StatelessWidget {
 
               // Texto 2
 
+              const Text(
+                'Manage your expenses. Seamlessly.',
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+
               // Botões
+
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  child: Text('Sign Up with Email ID'),
+                  style: ElevatedButton.styleFrom(),
+                  onPressed: () {},
+                ),
+              ),
+
+              // !
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton.icon(
+                  icon: Image.asset(
+                    'assets/images/google-logo.png',
+                    width: 16,
+                  ),
+                  label: const Text('Sign Up with Google'),
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.white,
+                    onPrimary: Colors.black,
+                  ),
+                  onPressed: () {},
+                ),
+              )
+              // ! Already have an account? Sign In
             ],
           ),
         ),
