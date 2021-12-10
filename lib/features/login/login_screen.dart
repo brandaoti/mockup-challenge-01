@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:challenge_01/core/core.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -7,65 +8,105 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
-      body: SafeArea(
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              // Logo
-
-              _logo(),
-
-              // Texto 1
-
-              const Text(
-                'Get your Money Under Control',
-                style: TextStyle(
-                  color: Colors.white,
-                ),
-              ),
-
-              // Texto 2
-
-              const Text(
-                'Manage your expenses. Seamlessly.',
-                style: TextStyle(
-                  color: Colors.white,
-                ),
-              ),
-
-              // Botões
-
-              SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                  child: Text('Sign Up with Email ID'),
-                  style: ElevatedButton.styleFrom(),
-                  onPressed: () {},
-                ),
-              ),
-
-              // !
-              SizedBox(
-                width: double.infinity,
-                child: ElevatedButton.icon(
-                  icon: Image.asset(
-                    'assets/images/google-logo.png',
-                    width: 16,
-                  ),
-                  label: const Text('Sign Up with Google'),
-                  style: ElevatedButton.styleFrom(
-                    primary: Colors.white,
-                    onPrimary: Colors.black,
-                  ),
-                  onPressed: () {},
-                ),
-              )
-              // ! Already have an account? Sign In
-            ],
-          ),
+      // appBar: AppBar(),
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 12.0),
+          child: _content(),
         ),
       ),
+    );
+  }
+
+  Widget _content() {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        _logo(),
+        const SizedBox(height: 16.0),
+        _texts(),
+        const SizedBox(height: 50.0),
+        _buttons(),
+      ],
+    );
+  }
+
+  Widget _texts() {
+    return Column(
+      children: [
+        _title(
+          title: Strings.loginTitle,
+          style: TextStyles.loginTitleStyle,
+        ),
+        const SizedBox(height: 12.0),
+        _title(
+          title: Strings.loginSubtitle,
+          style: TextStyles.loginTitleStyle.copyWith(
+            fontSize: 16,
+            color: Colors.white.withOpacity(0.4),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _title({
+    required String title,
+    TextAlign textAlign = TextAlign.center,
+    TextStyle style = TextStyles.loginTitleStyle,
+  }) {
+    return Text(
+      title,
+      style: style,
+      textAlign: textAlign,
+    );
+  }
+
+  Widget _buttons() {
+    return Column(
+      children: [
+        SizedBox(
+          height: 34,
+          width: double.infinity,
+          child: ElevatedButton(
+            child: const Text(
+              Strings.signUpButtonID,
+              style: TextStyles.signUpTitleStyle,
+            ),
+            style: ElevatedButton.styleFrom(
+              primary: AppColors.signUpButtonID,
+            ),
+            onPressed: () {},
+          ),
+        ),
+
+        const SizedBox(height: 10.0),
+
+        // !
+        SizedBox(
+          height: 34,
+          width: double.infinity,
+          child: ElevatedButton.icon(
+            icon: Image.asset(
+              Images.googleLogo,
+              width: 16,
+            ),
+            label: Text(
+              Strings.signUpButtonGoogle,
+              style: TextStyles.signUpTitleStyle.copyWith(
+                color: AppColors.backgroundBlack,
+              ),
+            ),
+            style: ElevatedButton.styleFrom(
+              primary: Colors.white,
+              onPrimary: Colors.black,
+            ),
+            onPressed: () {},
+          ),
+        ),
+
+        // ! Already have an account? Sign In
+      ],
     );
   }
 
