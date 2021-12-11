@@ -64,45 +64,18 @@ class LoginScreen extends StatelessWidget {
 
   Widget _buttons() {
     return Column(
-      children: [
-        SizedBox(
-          height: 34,
-          width: double.infinity,
-          child: ElevatedButton(
-            child: const Text(
-              Strings.signUpButtonID,
-              style: TextStyles.signUpTitleStyle,
-            ),
-            style: ElevatedButton.styleFrom(
-              primary: AppColors.signUpButtonID,
-            ),
-            onPressed: () {},
-          ),
+      children: const [
+        DefaultButton(
+          title: Strings.signUpButtonID,
+          primary: AppColors.signUpButtonID,
+          onPrimary: AppColors.backgroundWhite,
         ),
 
-        const SizedBox(height: 10.0),
+        SizedBox(height: 10.0),
 
-        // !
-        SizedBox(
-          height: 34,
-          width: double.infinity,
-          child: ElevatedButton.icon(
-            icon: Image.asset(
-              Images.googleLogo,
-              width: 16,
-            ),
-            label: Text(
-              Strings.signUpButtonGoogle,
-              style: TextStyles.signUpTitleStyle.copyWith(
-                color: AppColors.backgroundBlack,
-              ),
-            ),
-            style: ElevatedButton.styleFrom(
-              primary: Colors.white,
-              onPrimary: Colors.black,
-            ),
-            onPressed: () {},
-          ),
+        DefaultButton(
+          isVisibleIcon: true,
+          title: Strings.signUpButtonGoogle,
         ),
 
         // ! Already have an account? Sign In
@@ -118,6 +91,7 @@ class LoginScreen extends StatelessWidget {
     );
   }
 
+  // ! Melhorar esse componente de logo
   Widget _logoIllustration() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -159,7 +133,4 @@ class LoginScreen extends StatelessWidget {
       ],
     );
   }
-
-  // !
-
 }
