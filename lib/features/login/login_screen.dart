@@ -66,7 +66,7 @@ class LoginScreen extends StatelessWidget {
     return Column(
       children: const [
         DefaultButton(
-          title: Strings.signUpButtonID,
+          title: Text('xxx'),
           primary: AppColors.signUpButtonID,
           onPrimary: AppColors.backgroundWhite,
         ),
@@ -74,8 +74,7 @@ class LoginScreen extends StatelessWidget {
         SizedBox(height: 10.0),
 
         DefaultButton(
-          isVisibleIcon: true,
-          title: Strings.signUpButtonGoogle,
+          title: Text(Strings.signUpButtonGoogle),
         ),
 
         // ! Already have an account? Sign In
