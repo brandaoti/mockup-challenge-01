@@ -64,20 +64,42 @@ class LoginScreen extends StatelessWidget {
 
   Widget _buttons() {
     return Column(
-      children: const [
-        DefaultButton(
-          title: Text('xxx'),
+      children: [
+        const DefaultButton(
+          title: Text(
+            Strings.signUpButtonID,
+            style: TextStyles.signUpTitleStyle,
+          ),
           primary: AppColors.signUpButtonID,
           onPrimary: AppColors.backgroundWhite,
         ),
 
-        SizedBox(height: 10.0),
+        const SizedBox(height: 10.0),
 
         DefaultButton(
-          title: Text(Strings.signUpButtonGoogle),
+          title: Text(
+            Strings.signUpButtonGoogle,
+            style: TextStyles.signUpTitleStyle.copyWith(
+              color: AppColors.backgroundBlack,
+            ),
+          ),
+          icon: Image.asset(Images.googleLogo, width: 16),
         ),
 
+        const SizedBox(height: 50.0),
         // ! Already have an account? Sign In
+        RichText(
+          text: TextSpan(
+            style: TextStyles.signUpTitleStyle,
+            children: [
+              TextSpan(text: Strings.appAccount[0]),
+              TextSpan(
+                text: Strings.appAccount[1],
+                style: const TextStyle(decoration: TextDecoration.underline),
+              ),
+            ],
+          ),
+        ),
       ],
     );
   }

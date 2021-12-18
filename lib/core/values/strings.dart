@@ -6,4 +6,8 @@ abstract class Strings {
   // ! Buttons
   static const signUpButtonID = "Sign Up with Email ID";
   static const signUpButtonGoogle = "Sign Up with Google";
+  static const appAccount = [
+    'Already have an account? ',
+    'Sign In',
+  ];
 }
